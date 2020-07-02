@@ -5,7 +5,7 @@ Simple tools for reading/writing partitions without root.
 ## Examples
 
 ```
-# Write a partition.
+# Read a partition.
 $ acpart-read ./disk.img 0 > out.bin
 
 # Write a partition.
