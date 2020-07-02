@@ -35,12 +35,10 @@ int main(int argc, char **argv) {
   part_start = fdisk_get_sector_size(ctx) * fdisk_partition_get_start(pa);
   part_sz = fdisk_get_sector_size(ctx) * fdisk_partition_get_size(pa);
 
-  printf("%ld %ld", part_start, part_sz);
-
   fdisk_unref_partition(pa);
   fdisk_unref_context(ctx);
 
-  f = fopen(argv[1], "a+");
+  f = fopen(argv[1], "rb+");
   if (!f)
     err(1, "unable to open %s", argv[1]);
 
