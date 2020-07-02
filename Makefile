@@ -4,6 +4,7 @@ PREFIX=/usr/local
 BINDIR=$(PREFIX)/bin
 
 CFLAGS+=-Wall -Wpedantic
+LDFLAGS=
 LDLIBS=-l fdisk
 
 BIN=\
@@ -22,16 +23,16 @@ OBJ=\
 all: $(BIN)
 
 acpart-write: src/acpart-write.o
-	$(CC) $(CFLAGS) -o $@ $< $(LDLIBS)
+	$(CC) $(CFLAGS) $(LDFLAGS) -o $@ $< $(LDLIBS)
 
 acpart-read: src/acpart-read.o
-	$(CC) $(CFLAGS) -o $@ $< $(LDLIBS)
+	$(CC) $(CFLAGS) $(LDFLAGS) -o $@ $< $(LDLIBS)
 
 acpart-size: src/acpart-size.o
-	$(CC) $(CFLAGS) -o $@ $< $(LDLIBS)
+	$(CC) $(CFLAGS) $(LDFLAGS) -o $@ $< $(LDLIBS)
 
 acpart-offset: src/acpart-offset.o
-	$(CC) $(CFLAGS) -o $@ $< $(LDLIBS)
+	$(CC) $(CFLAGS) $(LDFLAGS) -o $@ $< $(LDLIBS)
 
 .PHONY: install
 install: all

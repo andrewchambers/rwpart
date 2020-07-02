@@ -9,10 +9,10 @@ Basic usage:
 
 ```
 # Read a partition.
-$ acpart-read ./disk.img 0 > out.bin
+$ acpart-read ./disk.img 0 > 0.img
 
 # Write a partition.
-$ acpart-write ./disk.img 0 < in.bin
+$ acpart-write ./disk.img 0 < 0.img
 
 # Print offset of partition 0
 $ acpart-offset ./disk.img 0
@@ -29,7 +29,7 @@ set -eux
 # Create disk.
 dd if=/dev/zero of=disk.img bs=1M count=128
 
-# Setup partitoins.
+# Setup partitions.
 parted --script disk.img \
     mktable msdos mkpart primary 2048s 100% set 1 boot on
 
