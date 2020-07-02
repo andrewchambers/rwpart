@@ -8,30 +8,30 @@ LDFLAGS=
 LDLIBS=-l fdisk
 
 BIN=\
-	acpart-write\
-	acpart-read\
-	acpart-size\
-	acpart-offset
+	rwpart-write\
+	rwpart-read\
+	rwpart-size\
+	rwpart-offset
 
 OBJ=\
-	src/acpart-write.o\
-	src/acpart-read.o\
-	src/acpart-size.o\
-	src/acpart-offset.o
+	src/rwpart-write.o\
+	src/rwpart-read.o\
+	src/rwpart-size.o\
+	src/rwpart-offset.o
 
 .PHONY: all
 all: $(BIN)
 
-acpart-write: src/acpart-write.o
+rwpart-write: src/rwpart-write.o
 	$(CC) $(CFLAGS) $(LDFLAGS) -o $@ $< $(LDLIBS)
 
-acpart-read: src/acpart-read.o
+rwpart-read: src/rwpart-read.o
 	$(CC) $(CFLAGS) $(LDFLAGS) -o $@ $< $(LDLIBS)
 
-acpart-size: src/acpart-size.o
+rwpart-size: src/rwpart-size.o
 	$(CC) $(CFLAGS) $(LDFLAGS) -o $@ $< $(LDLIBS)
 
-acpart-offset: src/acpart-offset.o
+rwpart-offset: src/rwpart-offset.o
 	$(CC) $(CFLAGS) $(LDFLAGS) -o $@ $< $(LDLIBS)
 
 .PHONY: install

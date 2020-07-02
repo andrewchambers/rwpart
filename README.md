@@ -1,4 +1,4 @@
-# acpart
+# rwpart
 
 Simple tools manipulating partitions without root. Can be run against
 raw disk image files or block devices. 
@@ -9,16 +9,16 @@ Basic usage:
 
 ```
 # Read a partition.
-$ acpart-read ./disk.img 0 > 0.img
+$ rwpart-read ./disk.img 0 > 0.img
 
 # Write a partition.
-$ acpart-write ./disk.img 0 < 0.img
+$ rwpart-write ./disk.img 0 < 0.img
 
 # Print offset of partition 0
-$ acpart-offset ./disk.img 0
+$ rwpart-offset ./disk.img 0
 
 # Print size of partition 0
-$ acpart-size ./disk.img 0
+$ rwpart-size ./disk.img 0
 ```
 
 Creating a bootable image without root:
@@ -34,10 +34,10 @@ parted --script disk.img \
     mktable msdos mkpart primary 2048s 100% set 1 boot on
 
 # Setup first partition with syslinux.
-acpart-read ./disk.img 0 > 0.img
+rwpart-read ./disk.img 0 > 0.img
 mkfs.vfat 0.img
 syslinux --install 0.img
-./acpart-write ./disk.img 0 < 0.img
+rwpart-write ./disk.img 0 < 0.img
 
 # Install master boot record.
 syslinux_dir="$(dirname $(realpath $(which syslinux)))"
