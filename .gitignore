@@ -1,0 +1,5 @@
+*.o
+acpart-read
+acpart-write
+acpart-offset
+acpart-size
